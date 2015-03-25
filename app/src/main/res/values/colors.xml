@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg1">#ff000000</color>
+    <color name="bg2">#ff333333</color>
+    <color name="bg3">#ff000000</color>
+    <color name="font">#ffccccff</color>
+    <color name="fontDrk">#ff999999</color>    
+</resources>

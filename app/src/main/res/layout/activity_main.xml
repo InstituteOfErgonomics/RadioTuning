@@ -1,0 +1,270 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg1"
+    android:orientation="horizontal"
+    tools:context=".MainActivity"
+    android:gravity="center">
+    <LinearLayout
+        android:id="@+id/LinearLayoutBorderFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bg2"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg3"
+            android:orientation="horizontal"
+            android:layout_margin="2dp">
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="Radio"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonBand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="Band"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonMute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="Mute"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonTuneDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="&lt;"
+                    android:textSize="@dimen/m4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/buttonCD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="CD"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonVolUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="Vol+"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonVolDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text="Vol-"
+                    android:textSize="@dimen/m4" />
+
+                <Button
+                    android:id="@+id/buttonTuneUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/maxButtonHeight"
+                    android:minHeight="@dimen/minButtonHeight"
+                    android:maxWidth="@dimen/maxButtonWidth"
+                    android:minWidth="@dimen/minButtonWidth"
+                    android:text=">"
+                    android:textSize="@dimen/m4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.6"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|right"
+                    android:baselineAlignBottom="false"
+                    android:onClick="guiShowAbout"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/instrcutionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2dip"
+                    android:paddingTop="10dip"
+                    android:text="Instruction:"
+                    android:textColor="@color/fontDrk"
+                    android:textSize="@dimen/m4"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/displayTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="10mm"
+                    android:paddingLeft="2dip"
+                    android:text="---"
+                    android:textColor="@color/font"
+                    android:textSize="@dimen/m6"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/volumeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2dip"
+                    android:text="Volume "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/fontDrk"
+                    android:textSize="@dimen/m4" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:text="1"
+                        android:textSize="@dimen/m4" />
+
+                    <Button
+                        android:id="@+id/button10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:text="2"
+                        android:textSize="@dimen/m4" />
+
+                    <Button
+                        android:id="@+id/button11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:text="3"
+                        android:textSize="@dimen/m4" />
+
+                    <Button
+                        android:id="@+id/button12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:text="4"
+                        android:textSize="@dimen/m4" />
+
+                    <Button
+                        android:id="@+id/button13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:text="5"
+                        android:textSize="@dimen/m4" />
+
+                    <Button
+                        android:id="@+id/resetButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.16"
+                        android:maxWidth="@dimen/maxButtonWidthStationKnob"
+                        android:onClick="resetButtonClick"
+                        android:text="R"
+                        android:textSize="@dimen/m4" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewVerticalMax"
+                    android:maxHeight="432dp"
+                    android:minWidth="1dp"
+                    android:maxWidth="1dp"
+                    android:minHeight="432dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewHorizontalMax"
+            android:maxHeight="1dp"
+            android:maxWidth="800dp"
+            android:minHeight="1dp"
+            android:minWidth="800dp" />
+
+    </LinearLayout>
+</LinearLayout>

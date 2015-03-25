@@ -1,0 +1,13 @@
+<resources>
+
+    <dimen name="m7">44dp</dimen>
+    <dimen name="m4">25dp</dimen>
+    <dimen name="m6">38dp</dimen>
+    <dimen name="maxButtonHeight">95dp</dimen>
+    <dimen name="minButtonHeight">95dp</dimen>
+    <dimen name="maxButtonWidth">95dp</dimen>
+    <dimen name="minButtonWidth">95dp</dimen>
+
+    <dimen name="maxButtonWidthStationKnob">95dp</dimen>
+    
+</resources>
