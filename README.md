@@ -20,6 +20,6 @@ The app can be also controlled via Bluetooth or OTG keyboard.
 Log-files are saved to a folder on the smartphone
 
 ------
-For legal reasons we are not allowed to upload the (foreign) music sound files to github or re-license the files. For our own voice files we decided to take the same way (they are not in this GPL github repository). If you want to program, you may find within 10 seconds how to get the sound files out of an Android apk. So, you can develop, contribute to the project and setup own experiments.
+For legal reasons we are not allowed to upload the (foreign) music sound files to github or re-license the files. For our own voice files we decided to take the same way (they are not in this github repository). If you want to program, you may find within 10 seconds how to get the sound files out of an Android apk. So, you can develop, contribute to the project and setup own experiments.
 
 If you fork and would make an own public app, you have to get other sound files or solutions.
