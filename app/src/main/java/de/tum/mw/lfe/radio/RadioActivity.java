@@ -5,6 +5,7 @@ package de.tum.mw.lfe.radio;
 //------------------------------------------------------
 //Version	Date			Author				Mod
 //1		    Mar, 2015		Michael Krause		initial
+//1.1		Apr, 2015		Michael Krause		removed bug; removeGlobalOnLayoutListener crashed
 //
 //------------------------------------------------------
 
@@ -159,7 +160,8 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
                 @Override
                 public void onGlobalLayout() {
                     registerButtonDownListenerAndCheckSize();
-                    observer.removeGlobalOnLayoutListener(this);
+                    //observer.removeGlobalOnLayoutListener(this); //V1.0 crashed on some devices; debugged next line V1.1
+                    ((LinearLayout)findViewById(R.id.LinearLayoutMain)).getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
             });
 
