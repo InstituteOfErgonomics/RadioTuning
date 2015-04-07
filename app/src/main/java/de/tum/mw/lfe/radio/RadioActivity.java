@@ -6,7 +6,7 @@ package de.tum.mw.lfe.radio;
 //Version	Date			Author				Mod
 //1		    Mar, 2015		Michael Krause		initial
 //1.1		Apr, 2015		Michael Krause		removed bug; removeGlobalOnLayoutListener crashed
-//
+//1.2       Apr, 2015       Michael Krause      String.format(Locale.US,...
 //------------------------------------------------------
 
 /*
@@ -39,6 +39,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import android.media.AudioManager;
@@ -353,27 +354,35 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 				}	
 			} 			    	
 	    };	
-		
+
+        String getFormatedFreqString(int band, String separator, float freq){
+            String str = "";
+            switch (band) {
+                case AM:
+                    str += BAND_NAMES[band] + separator + String.format(Locale.US, "%d",(int)freq) + " " + FREQ_RANGE_UNIT[band];
+                    break;
+                case FM1:
+                case FM2:
+                    str += BAND_NAMES[band] + separator + String.format(Locale.US,"%.1f",freq) + " " + FREQ_RANGE_UNIT[band];
+                    break;
+                case WEATHER:
+                    str += BAND_NAMES[band] + separator + String.format(Locale.US,"%.3f",freq) + " " + FREQ_RANGE_UNIT[band];
+                    break;
+                default:
+                    str += "---";
+                    break;
+            }
+
+            return str;
+        }
+
 		void refresh(){//refresh display and sound
 			
 			//---refresh instruction
 			String task = "Tune ";
-            switch (mDesiredBand) {
-            case AM:
-            	task += BAND_NAMES[mDesiredBand] + " " + String.format("%d",(int)mDesiredFreq) + " " + FREQ_RANGE_UNIT[mDesiredBand];
-                break;
-            case FM1:
-            case FM2:
-                task += BAND_NAMES[mDesiredBand] + " " + String.format("%.1f",mDesiredFreq) + " " + FREQ_RANGE_UNIT[mDesiredBand];
-                break;
-            case WEATHER:
-            	task += BAND_NAMES[mCurrentBand] + " " + String.format("%.3f",mDesiredFreq) + " " + FREQ_RANGE_UNIT[mDesiredBand];
-                break;
-            default: 
-            	task += "---";
-                break;
-            }				
-			
+
+            task += getFormatedFreqString(mDesiredBand, " ", mDesiredFreq);
+
             setInstruction(task);
 
 			
@@ -394,25 +403,10 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 				}
 				
 				//e.g. AM 550 kHz
-				String temp;
-	            switch (mCurrentBand) {
-	            case AM:
-					 temp = BAND_NAMES[mCurrentBand] + "\n" + String.format("%d",(int)mCurrentFreq[mCurrentBand]) + " " + FREQ_RANGE_UNIT[mCurrentBand];
-                     break;
-	            case FM1:
-	            case FM2:
-				 	temp = BAND_NAMES[mCurrentBand] + "\n" + String.format("%.1f",mCurrentFreq[mCurrentBand]) + " " + FREQ_RANGE_UNIT[mCurrentBand];
-                    break;
-	            case WEATHER:
-				 	temp = BAND_NAMES[mCurrentBand] + "\n" + String.format("%.3f",mCurrentFreq[mCurrentBand]) + " " + FREQ_RANGE_UNIT[mCurrentBand];
-                    break;
-	            default: 
-	            	temp = "---";
-	                break;
-	            }				
-				
+				String temp = getFormatedFreqString(mCurrentBand, "\n", mCurrentFreq[mCurrentBand]);
+
 				setDisplay(temp);
-				
+
 
 				int indexBelow = 0;
 				int indexAbove = STATION_RESSOURCES.length-1;
@@ -532,9 +526,9 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 			 log.append(CSV_DELIMITER);
 			 log.append(mDesiredBand);
 			 log.append(CSV_DELIMITER);
-			 log.append(String.format("%.3f",mCurrentFreq[mCurrentBand]));
+			 log.append(String.format(Locale.US,"%.3f",mCurrentFreq[mCurrentBand]));
 			 log.append(CSV_DELIMITER);
-			 log.append(String.format("%.3f",mDesiredFreq));
+			 log.append(String.format(Locale.US,"%.3f",mDesiredFreq));
 			 log.append(CSV_DELIMITER);
 			 log.append(FREQ_STEP[mCurrentBand]);
 			 		 				
