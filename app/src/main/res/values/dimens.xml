@@ -8,6 +8,8 @@
     <dimen name="maxButtonWidth">95dp</dimen>
     <dimen name="minButtonWidth">95dp</dimen>
 
+    <dimen name="buttonMargin">2dp</dimen>
+
     <dimen name="maxButtonWidthStationKnob">95dp</dimen>
     
 </resources>

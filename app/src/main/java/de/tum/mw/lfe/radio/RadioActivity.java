@@ -7,6 +7,7 @@ package de.tum.mw.lfe.radio;
 //1		    Mar, 2015		Michael Krause		initial
 //1.1		Apr, 2015		Michael Krause		removed bug; removeGlobalOnLayoutListener crashed
 //1.2       Apr, 2015       Michael Krause      String.format(Locale.US,...
+//1.3       Apr, 2015       Michael Krause      fixed button background color
 //------------------------------------------------------
 
 /*
@@ -788,8 +789,11 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
         LinearLayout l = (LinearLayout)findViewById(R.id.LinearLayoutMain);
         int px = l.getHeight();//we get the height from the app
         int resize = -1;
-        if (px/4 < getResources().getDimensionPixelOffset(R.dimen.maxButtonHeight)){//if the max value from the dimension file is too large,
-          resize = px/4;// we resize to height/4
+        int doubleMargin = 2* getResources().getDimensionPixelOffset(R.dimen.buttonMargin);//top+bottom margin around each button
+        int minHeight = getResources().getDimensionPixelOffset(R.dimen.minButtonHeight) + 2* getResources().getDimensionPixelOffset(R.dimen.buttonMargin);//minHeight
+
+        if (px/4 < (minHeight + doubleMargin)){//if the max value from the dimension file is too large,
+          resize = px/4 - doubleMargin;// we resize to height/4
         }
 
 

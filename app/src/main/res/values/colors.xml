@@ -4,5 +4,6 @@
     <color name="bg2">#ff333333</color>
     <color name="bg3">#ff000000</color>
     <color name="font">#ffccccff</color>
-    <color name="fontDrk">#ff999999</color>    
+    <color name="fontDrk">#ff999999</color>
+    <color name="buttonBg">#ffe7e7e7</color>
 </resources>
