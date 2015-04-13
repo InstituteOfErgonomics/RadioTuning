@@ -39,7 +39,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="Radio"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -52,7 +52,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="Band"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -65,7 +65,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="Mute"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -78,7 +78,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="&lt;"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
             </LinearLayout>
@@ -99,7 +99,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="CD"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -112,7 +112,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="Vol+"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -125,7 +125,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="Vol-"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
                 <Button
@@ -138,7 +138,7 @@
                     android:minWidth="@dimen/minButtonWidth"
                     android:text="&gt;"
                     android:layout_margin="@dimen/buttonMargin"
-                    android:background="@color/buttonBg"
+                    android:background="@drawable/button_custom"
                     android:textSize="@dimen/m4" />
 
             </LinearLayout>
@@ -157,7 +157,8 @@
                     android:layout_gravity="top|right"
                     android:baselineAlignBottom="false"
                     android:onClick="guiShowAbout"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                    android:background="@drawable/button_custom" />
 
                 <TextView
                     android:id="@+id/instrcutionTextView"
@@ -203,7 +204,7 @@
                         android:maxWidth="@dimen/maxButtonWidthStationKnob"
                         android:text="1"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                     <Button
@@ -214,7 +215,7 @@
                         android:maxWidth="@dimen/maxButtonWidthStationKnob"
                         android:text="2"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                     <Button
@@ -225,7 +226,7 @@
                         android:maxWidth="@dimen/maxButtonWidthStationKnob"
                         android:text="3"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                     <Button
@@ -236,7 +237,7 @@
                         android:maxWidth="@dimen/maxButtonWidthStationKnob"
                         android:text="4"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                     <Button
@@ -247,7 +248,7 @@
                         android:maxWidth="@dimen/maxButtonWidthStationKnob"
                         android:text="5"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                     <Button
@@ -259,7 +260,7 @@
                         android:onClick="resetButtonClick"
                         android:text="R"
                         android:layout_margin="@dimen/buttonMargin"
-                        android:background="@color/buttonBg"
+                        android:background="@drawable/button_custom"
                         android:textSize="@dimen/m4" />
 
                 </LinearLayout>

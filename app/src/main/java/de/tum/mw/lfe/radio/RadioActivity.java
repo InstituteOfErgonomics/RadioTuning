@@ -8,6 +8,7 @@ package de.tum.mw.lfe.radio;
 //1.1		Apr, 2015		Michael Krause		removed bug; removeGlobalOnLayoutListener crashed
 //1.2       Apr, 2015       Michael Krause      String.format(Locale.US,...
 //1.3       Apr, 2015       Michael Krause      fixed button background color
+//1.4       Apr, 2015       Michael Krause      nice fixed button background
 //------------------------------------------------------
 
 /*
