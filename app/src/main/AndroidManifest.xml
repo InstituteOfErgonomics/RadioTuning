@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.tum.mw.lfe.radio"
     android:versionCode="20150415"
-    android:versionName="1.4" >
+    android:versionName="1.41" >
 
     <uses-sdk
         android:minSdkVersion="8"

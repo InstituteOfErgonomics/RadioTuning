@@ -9,6 +9,7 @@ package de.tum.mw.lfe.radio;
 //1.2       Apr, 2015       Michael Krause      String.format(Locale.US,...
 //1.3       Apr, 2015       Michael Krause      fixed button background color
 //1.4       Apr, 2015       Michael Krause      nice fixed button background
+//1.4.1     Apr, 2015       Michael Krause      in backgroundtask null pointer excp
 //------------------------------------------------------
 
 /*
@@ -169,7 +170,9 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
             });
 
 		    
-		    mStateMachine.reset();
+		    if(parent.mStateMachine != null){ //new in V1.4.1
+                parent.mStateMachine.reset(); //caused on one device a null pointer excp ?!
+            }
 			logging("newTask");
 		
 		}
