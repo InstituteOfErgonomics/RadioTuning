@@ -10,6 +10,7 @@ package de.tum.mw.lfe.radio;
 //1.3       Apr, 2015       Michael Krause      fixed button background color
 //1.4       Apr, 2015       Michael Krause      nice fixed button background
 //1.4.1     Apr, 2015       Michael Krause      in backgroundtask null pointer excp
+//1.5       Oct, 2016       Michael Krause      added touch gestures
 //------------------------------------------------------
 
 /*
@@ -71,6 +72,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -83,7 +85,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RadioActivity extends Activity implements View.OnTouchListener{
+public class RadioActivity extends Activity implements View.OnTouchListener, GestureDetector.OnGestureListener{
 
 	private static final String TAG = "LFEradio.Activity";
 	private StateMachine mStateMachine;//state machine for radio function
@@ -100,7 +102,8 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
     int mSavedBrightness=128;
     int mSavedBrightnessMode;
 
-	
+	private GestureDetector mDetector;
+
 	//logging
 	private File mFile=null;
 	public static final String CSV_DELIMITER = ";"; //delimiter within csv
@@ -680,6 +683,10 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 		
 		
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+		mDetector = new GestureDetector(this,this);
+
+
 	}
 /*
 	@Override
@@ -835,9 +842,68 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 		
 		
 	}
-	
-	
-	
+
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event){
+		this.mDetector.onTouchEvent(event);
+		// Be sure to call the superclass implementation
+		return super.onTouchEvent(event);
+	}
+
+	@Override
+	public boolean onDown(MotionEvent event) {
+		return true;
+	}
+
+	@Override
+	public boolean onFling(MotionEvent event1, MotionEvent event2,
+						   float velocityX, float velocityY) {
+
+		float v;
+		int THRESHOLD = 0;
+
+		if (Math.abs(velocityX) > Math.abs(velocityY)){
+			v = velocityX;
+		}else{
+			v = -velocityY;
+		}
+
+		if (v > THRESHOLD){
+			guiTuneUp(null);
+			return true;
+		}
+		if (v < THRESHOLD){
+			guiTuneDown(null);
+			return true;
+		}
+
+		return true;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent event) {
+		guiSwitchToRadio(null);
+		guiSwitchRadioBand(null);
+	}
+
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+							float distanceY) {
+		return true;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent event) {
+	}
+
+	@Override
+	public boolean onSingleTapUp(MotionEvent event) {
+		return true;
+	}
+
+
+
 	//implementation of onTouch for buttonDown events
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN ) {
@@ -972,6 +1038,8 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 	public void guiShowAbout(View v){
 		
 	      String tempStr = "This is an open source implementation of a radio tuning task; e.g., for driver distraction studies. <br/>Procedure of one task: <br/> - Press radio button<br/> - Toggle to instructed radio band<br/> - Tune to the instructed frequency";
+		  tempStr += "<br/><br/>On a keyboard SHIFT can be used to switch to RADIO mode, SPACE to toggle the BAND and LEFT/RIGHT-arrows to TUNE the frequency";
+		  tempStr += "<br/><br/>The unused display area (or touchpads) can be used to perform gestures. Long press: Switch to RADIO and toggle BAND. FLICK RIGHT or UP, TUNE UP. FLICK LEFT or DOWN to TUNE DOWN.";
 	      tempStr += "<br/><br/> (c) Michael Krause <a href=\"mailto:krause@tum.de\">krause@tum.de</a> <br/>2014 Institute of Ergonomics, TUM";
 	      tempStr += "<br/><br/>More information on <br/><a href=\"http://www.lfe.mw.tum.de/radioTask\">http://www.lfe.mw.tum.de/radioTask</a>";
 	      tempStr += "<br/><br/>Music by <a href=\"http://www.pacdv.com/sounds/\">www.pacdv.com/sounds</a>";
@@ -1005,8 +1073,10 @@ public class RadioActivity extends Activity implements View.OnTouchListener{
 		mStateMachine.reset();
 		logging("reset");
 	}
-	
-	
+
+
+
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) { //handle external keys from bluetooth keyboard and volume keys
 
